@@ -50,9 +50,7 @@ if [ -e ./values-kibana.yml ]; then
     elastic/kibana \
     --namespace "${NAMESPACE}" \
     --version "${STACK_VERSION}" \
-    --values ./values-kibana.yml \
-    --set service.type="LoadBalancer" \
-    --set service.LoadBalancerIP="10.11.1.58"
+    --values ./values-kibana.yml
 else
   printf "%s\\n" "Helm values file for Kibana not found"
   exit 1

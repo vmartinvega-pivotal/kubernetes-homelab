@@ -2,12 +2,12 @@
 clusterName: "elasticsearch"
 nodeGroup: "master"
 
-roles:
-  master: "true"
-  ingest: "true"
-  data: "true"
-  remote_cluster_client: "true"
-  ml: "true"
+# roles:
+#   master: "true"
+#   ingest: "true"
+#   data: "true"
+#   remote_cluster_client: "true"
+#   ml: "true"
 
 replicas: 1
 minimumMasterNodes: 1
@@ -61,21 +61,21 @@ resources:
 
 volumeClaimTemplate:
   accessModes: ["ReadWriteOnce"]
-  storageClassName: "freenas-nfs-csi"
+  storageClassName: "nfs-csi"
   resources:
     requests:
-      storage: 64Gi
+      storage: 10Gi
 
 service:
   enabled: true
   labels: {}
   labelsHeadless: {}
-  type: LoadBalancer
-  nodePort: ""
+  type: NodePort
+  nodePort: "32004"
   annotations: {}
   httpPortName: https
   transportPortName: transport
-  loadBalancerIP: "10.11.1.59"
+  loadBalancerIP: ""
   loadBalancerSourceRanges: []
   externalTrafficPolicy: ""
 

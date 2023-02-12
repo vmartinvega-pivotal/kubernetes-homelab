@@ -52,10 +52,10 @@ resources:
     memory: "2Gi"
 
 service:
-  type: LoadBalancer
-  loadBalancerIP: "10.11.1.58"
+  type: NodePort
+  loadBalancerIP: ""
   port: 5601
-  nodePort: ""
+  nodePort: "32005"
   labels: {}
   annotations:
     {}
